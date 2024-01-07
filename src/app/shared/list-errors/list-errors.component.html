@@ -1,0 +1,7 @@
+@if(errorList) {
+<ul class="py-2">
+  @for(error of errorList; track error) {
+  <li class="text-red-400">{{ error }}</li>
+  }
+</ul>
+}
