@@ -1,0 +1,35 @@
+<main class="w-full px-4 py-10 mx-auto lg:px-6 max-w-7xl">
+  <div class="flex flex-col-reverse md:flex-row md:items-start md:gap-4">
+    <div class="md:flex-1">
+      <div class="border-b border-b-slate-800">
+        <ul class="flex">
+          <li class="">
+            <a class="inline-block w-24 py-2 text-lg font-semibold text-center transition-all duration-200 cursor-pointer"
+               [ngClass]="{'text-indigo-500 border-b-2 border-b-indigo-500': listConfig.type === 'feed'}"
+               (click)="setListTo('feed')">
+              Feed
+            </a>
+          </li>
+          <li>
+            <a class="inline-block w-24 py-2 text-lg font-semibold text-center transition-all duration-200 cursor-pointer"
+               [ngClass]="{'text-indigo-500 border-b-2 border-b-indigo-500': listConfig.type === 'all' && !listConfig.filters.tag}"
+               (click)="setListTo('all')">
+              All
+            </a>
+          </li>
+          <li [hidden]="!listConfig.filters.tag">
+            <a
+               class="inline-block w-full py-2 text-lg font-semibold text-center text-indigo-500 transition-all duration-200 border-b-2 cursor-pointer border-b-indigo-500">
+              # {{ listConfig.filters.tag }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <articles-list [config]="listConfig" [limit]="5" />
+    </div>
+
+    <app-tags-filter (handleTagClick)="handleChangeTag($event)" />
+
+  </div>
+</main>

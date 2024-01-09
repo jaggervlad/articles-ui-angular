@@ -21,7 +21,6 @@ interface AuthForm {
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule, ListErrorsComponent],
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css',
 })
 export class AuthComponent implements OnInit {
   authType = '';

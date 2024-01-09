@@ -9,7 +9,6 @@ import { UserService } from '../../services/user.service';
   standalone: true,
   imports: [RouterLinkActive, RouterLink, AsyncPipe, IfAuthenticatedDirective],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   currentUser$ = inject(UserService).currentUser;

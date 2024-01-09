@@ -13,6 +13,7 @@ import { JwtService } from './core/services/jwt.service';
 import { UserService } from './core/services/user.service';
 import { EMPTY } from 'rxjs';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { TagService } from './features/article/services/tag.service';
 
 export function initAuth(jwtService: JwtService, userService: UserService) {
   return () => (jwtService.getToken() ? userService.getCurrentUser() : EMPTY);
@@ -25,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: initAuth,
-      deps: [JwtService, UserService],
+      deps: [JwtService, UserService, TagService],
       multi: true,
     },
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },

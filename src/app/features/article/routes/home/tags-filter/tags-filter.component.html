@@ -1,0 +1,16 @@
+<div class="w-full rounded-lg md:w-56 bg-slate-800">
+  <section class="px-4 py-3">
+
+    <h3 class="mb-4 text-lg font-bold">Popular Tags</h3>
+
+    <div class="flex flex-wrap gap-1">
+      @for(tag of tags$ | async; track tag) {
+      <a (click)="handleClick(tag)"
+         class=" text-xs font-medium px-2.5 py-0.5 rounded bg-slate-700 text-slate-300 cursor-pointer">
+        {{ tag }}
+      </a>
+      }
+    </div>
+
+  </section>
+</div>

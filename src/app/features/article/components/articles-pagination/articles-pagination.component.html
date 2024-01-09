@@ -1,0 +1,14 @@
+<nav class="w-full mt-6">
+  <ul class="flex flex-wrap gap-2">
+    @for(pageNumber of totalPages; track pageNumber) {
+    <li>
+      <button
+              class="px-3 py-2 border rounded-lg border-slate-600 hover:bg-white hover:text-slate-900"
+              (click)="setPageTo(pageNumber)"
+              [ngClass]="{'bg-white text-slate-900': pageNumber === currentPage}">
+        {{ pageNumber }}
+      </button>
+    </li>
+    }
+  </ul>
+</nav>

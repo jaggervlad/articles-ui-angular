@@ -6,7 +6,6 @@ import { Errors } from '../../core/models/errors.model';
   standalone: true,
   imports: [],
   templateUrl: './list-errors.component.html',
-  styleUrl: './list-errors.component.css',
 })
 export class ListErrorsComponent {
   errorList: string[] = [];

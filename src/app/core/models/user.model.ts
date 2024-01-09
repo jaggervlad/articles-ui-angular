@@ -5,3 +5,5 @@ export interface User {
   bio: string;
   image: string;
 }
+
+export type CurrentUser = Omit<User, 'token'>;

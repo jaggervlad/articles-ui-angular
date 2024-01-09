@@ -1,0 +1,19 @@
+<section class="flex flex-col w-full">
+
+  @if(loading === LoadingState.LOADING){
+  <div class="py-6 font-semibold text-slate-300">Loading articles</div>
+  }
+
+  @if(loading === LoadingState.LOADED) {
+
+  @for(article of results; track article.slug) {
+  <app-articles-list-item [article]="article" />
+  } @empty {
+  <div class="py-6 font-semibold text-slate-300">No articles are here yet...</div>
+  }
+
+  <app-articles-pagination [currentPage]="currentPage" [totalPages]="totalPages" (onPageChange)="setPageTo($event)" />
+
+  }
+
+</section>
