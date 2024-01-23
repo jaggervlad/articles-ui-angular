@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/layout/header/header.component';
-import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,5 @@ import { initFlowbite } from 'flowbite';
 export class AppComponent implements OnInit {
   title = 'articles-ui';
 
-  ngOnInit(): void {
-    initFlowbite();
-  }
+  ngOnInit(): void {}
 }

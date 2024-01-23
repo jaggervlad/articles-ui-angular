@@ -2,15 +2,25 @@
   <section class="px-4 py-3">
 
     <h3 class="mb-4 text-lg font-bold">Popular Tags</h3>
+    @if(tags$ | async; as tags) {
 
-    <div class="flex flex-wrap gap-1">
-      @for(tag of tags$ | async; track tag) {
+    <div class="flex flex-wrap gap-1" [hidden]="!tagsLoaded">
+      @for(tag of tags; track tag) {
       <a (click)="handleClick(tag)"
          class=" text-xs font-medium px-2.5 py-0.5 rounded bg-slate-700 text-slate-300 cursor-pointer">
         {{ tag }}
       </a>
+      } @empty {
+      <div>
+        No tags are here... yet.
+      </div>
       }
     </div>
+    }
+
+
+    <div [hidden]="tagsLoaded">Loading tags...</div>
+
 
   </section>
 </div>
